@@ -14,8 +14,17 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import DashboardScreen from '../screens/DashboardScreen';
+import AboutScreen from '../screens/AboutScreen';
+
+import ParadoxScreen from '../screens/ParadoxScreen';
+import DuplicatedScreen from '../screens/DuplicatedScreen';
+import BagScreen from '../screens/BagScreen';
+import CssScreen from '../screens/CssScreen';
+import BracketsScreen from '../screens/BracketsScreen';
+import FloorsScreen from '../screens/FloorsScreen';
+import AsyncScreen from '../screens/AsyncScreen';
+
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -43,6 +52,15 @@ function RootNavigator() {
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
+
+      <Stack.Screen name="DuplicatedScreen" component={DuplicatedScreen} options={{ title: 'Duplicated Numbers' }} />
+      <Stack.Screen name="CssScreen" component={CssScreen} options={{ title: 'Css' }} />
+      <Stack.Screen name="BracketsScreen" component={BracketsScreen} options={{ title: 'Brackets' }} />
+      <Stack.Screen name="ParadoxScreen" component={ParadoxScreen} options={{ title: 'Zeno´s Paradox' }} />
+      <Stack.Screen name="BagScreen" component={BagScreen} options={{ title: 'Bag' }} />
+      <Stack.Screen name="FloorsScreen" component={FloorsScreen} options={{ title: 'Floors' }} />
+      <Stack.Screen name="AsyncScreen" component={AsyncScreen} options={{ title: 'Async' }} />
+
     </Stack.Navigator>
   );
 }
@@ -64,31 +82,17 @@ function BottomTabNavigator() {
       }}>
       <BottomTab.Screen
         name="TabOne"
-        component={TabOneScreen}
+        component={DashboardScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
+          title: 'Dashboard',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
         })}
       />
       <BottomTab.Screen
         name="TabTwo"
-        component={TabTwoScreen}
+        component={AboutScreen}
         options={{
-          title: 'Tab Two',
+          title: 'About',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
