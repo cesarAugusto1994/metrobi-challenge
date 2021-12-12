@@ -7,7 +7,7 @@ import { RootStackScreenProps } from '../types';
 export default function BracketsScreen({ navigation }: RootStackScreenProps<'NotFound'>) {
 
   const [data] = React.useState([
-    '{([])}', '([{}])', '(.])', '{[{(.])}]}', '{()}', '{[(.])]}'
+    '{([])}', '([{}])', '(.])', '{[{(.])}]}', '{()}', '{[(>])]}'
   ]);
 
   const brackets = "[]{}()<>"
