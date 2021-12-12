@@ -12,13 +12,12 @@ const renderItem = ({ item }) => {
 
 export default function AsyncScreen({ navigation }: RootStackScreenProps<'NotFound'>) {
 
-  const [data] = React.useState(["A", "B", "C", "D", "E", "F"]);
+  const [data] = React.useState(["A", "B", "C", "D", "E", "F", "G", "H"]);
   const [show, setShow] = React.useState("")
   const [log, setLog] = React.useState([]);
 
   const init = () => {
     setShow("")
-    setLog([])
     data.forEach((item, index) => {
       setTimeout(() => {
         setShow(item)
@@ -29,7 +28,8 @@ export default function AsyncScreen({ navigation }: RootStackScreenProps<'NotFou
   }
 
   React.useEffect(() => {
-    init()
+    init();
+    () => setLog([])
   }, [])
 
   return (
